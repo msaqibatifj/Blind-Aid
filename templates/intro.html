@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="topbar">
+    <h1>Blind Aid</h1>
+    <div class="nav">
+      <a href="/app">Open App</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="lead">Blind Aid is a small vision-assist app that runs an object detector (YOLOv8) on a camera feed and exposes live detection stats via a web UI.</p>
+    <div class="row">
+      <div style="flex:1">
+        <h3 style="margin-top:0">What it does</h3>
+        <ul>
+          <li>Detects people, animals and common objects in the camera view.</li>
+          <li>Draws bounding boxes on the live video window.</li>
+          <li>Exposes simple realtime stats (frames processed, last detection count) to this website.</li>
+        </ul>
+      </div>
+      <div style="width:300px">
+        <div class="stat card">
+          <div class="num">Ready</div>
+          <div class="muted">Local demo</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:18px">
+  <button id="go-to-app" class="btn">Open App</button>
+  <a class="btn secondary" href="/app">Open App (new tab)</a>
+    </div>
+  </div>
+
+  <div class="footer">Tip: Run the detector from the host machine and then open the app to see live stats.</div>
+</div>
+
+{% endblock %}

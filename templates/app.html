@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="topbar">
+    <h1>Blind Aid — App</h1>
+    <div class="nav">
+      <a href="/">Intro</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">Live Detection Feed</h3>
+
+    
+
+    <div style="margin-top:16px">
+      <button id="stop-detector" class="btn secondary">Stop detector (if supported)</button>
+    </div>
+
+    <div style="margin-top:18px" class="card">
+      <h3 style="margin:0 0 8px">Live camera</h3>
+      <img id="video" src="{{ url_for('video_feed') }}" style="width:100%;height:auto;border-radius:8px;" alt="Live feed" />
+      <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
+        <div class="muted">Status: <span id="statusText">-</span></div>
+        <div style="margin-left:auto" class="muted">Frames: <span id="frames">0</span> — Detections: <span id="detcount">0</span></div>
+      </div>
+
+      <div style="margin-top:12px">
+        <h4 style="margin:8px 0">Status</h4>
+        <div id="status-list" class="muted">No recordings available</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">If the page shows <em>unavailable</em>, your detection script may not be running or /api/stats is not reachable.</div>
+</div>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+{% endblock %}
