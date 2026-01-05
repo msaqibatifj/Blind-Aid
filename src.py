@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 # Load YOLOv8 model
 print("Loading YOLOv8 model...")
-model = YOLO("yolov8n.pt")
+model = YOLO("best.pt")
 
 # video capture will be lazy-opened inside get_video_capture
 _video_capture = None
@@ -188,3 +188,4 @@ def detections_all():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
+
