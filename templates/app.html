@@ -1,41 +1,108 @@
-{% extends "base.html" %}
-
-{% block content %}
-<div class="container">
-  <div class="topbar">
-    <h1>Blind Aid — App</h1>
-    <div class="nav">
-      <a href="/">Intro</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blind Aid - App</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <!-- Fixed Navigation -->
+  <nav class="fixed-nav">
+    <div class="nav-logo"><span class="eye-icon">👁️</span>Blind Aid</div>
+    <div class="nav-dots">
+      <span class="nav-dot active" data-section="0"></span>
+      <span class="nav-dot" data-section="1"></span>
+      <span class="nav-dot" data-section="2"></span>
     </div>
-  </div>
+  </nav>
 
-  <div class="card">
-    <h3 style="margin-top:0">Live Detection Feed</h3>
-
+  <!-- Scroll Container -->
+  <div class="scroll-container">
     
-
-    <div style="margin-top:16px">
-      <button id="stop-detector" class="btn secondary">Stop detector (if supported)</button>
-    </div>
-
-    <div style="margin-top:18px" class="card">
-      <h3 style="margin:0 0 8px">Live camera</h3>
-      <img id="video" src="{{ url_for('video_feed') }}" style="width:100%;height:auto;border-radius:8px;" alt="Live feed" />
-      <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
-        <div class="muted">Status: <span id="statusText">-</span></div>
-        <div style="margin-left:auto" class="muted">Frames: <span id="frames">0</span> — Detections: <span id="detcount">0</span></div>
+    <!-- Section 1: Welcome -->
+    <section class="section section-welcome">
+      <div class="section-content">
+        <div class="welcome-icon">👁️</div>
+        <h1 class="welcome-title">Blind Aid</h1>
+        <p class="welcome-subtitle">Vision Assist App</p>
+        <p class="welcome-description">Real-time object detection powered by AI</p>
+        <div class="scroll-indicator">
+          <span>
+            <p class="scroll-text">Scroll to explore</p>
+          </span>
+          <div class="scroll-arrow">↓</div>
+        </div>
       </div>
+    </section>
 
-      <div style="margin-top:12px">
-        <h4 style="margin:8px 0">Status</h4>
-        <div id="status-list" class="muted">No recordings available</div>
+    <!-- Section 2: Live Detection -->
+    <section class="section section-features">
+      <div class="section-content">
+        <h2 class="section-title">Live Detection Feed</h2>
+        <p class="section-subtitle">Real-time object detection in action</p>
+        
+        <div class="app-detection-card">
+          <div class="detection-header">
+            <h3>📹 Live Camera</h3>
+            <div class="status-badge">
+              <div class="status-indicator"></div>
+              <span id="statusText">Connecting...</span>
+            </div>
+          </div>
+          
+          <div class="video-container">
+            <img id="video" src="/video_feed" alt="Live feed" />
+          </div>
+          
+          <div class="detection-stats">
+            <div class="stat-item">
+              <span class="stat-label">Frames</span>
+              <span id="frames" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Detections</span>
+              <span id="detcount" class="stat-value">0</span>
+            </div>
+          </div>
+          
+          <div class="detection-controls">
+            <button id="stop-detector" class="btn secondary">Stop Detector</button>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <!-- Section 3: Status & Navigation -->
+    <section class="section section-app">
+      <div class="section-content">
+        <h2 class="section-title">Detection Status</h2>
+        <p class="section-subtitle">Monitor your detection session</p>
+        
+        <div class="app-card">
+          <div class="app-status">
+            <div class="status-indicator"></div>
+            <span>Detector: <span id="det-run">checking...</span></span>
+          </div>
+          
+          <div id="status-list" class="status-list">
+            <p class="muted">No recent detections</p>
+          </div>
+          
+          <div class="button-group">
+            <a href="/" class="btn btn-large">← Back to Intro</a>
+            <button id="refresh-status" class="btn btn-large secondary">Refresh Status</button>
+          </div>
+        </div>
+        
+        <div class="footer">
+          <p>© 2026 Blind Aid. Built with ❤️ for accessibility.</p>
+        </div>
+      </div>
+    </section>
+
   </div>
 
-  <div class="footer">If the page shows <em>unavailable</em>, your detection script may not be running or /api/stats is not reachable.</div>
-</div>
-
-<script src="{{ url_for('static', filename='js/app.js') }}"></script>
-
-{% endblock %}
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

@@ -1,40 +1,120 @@
-{% extends "base.html" %}
-
-{% block content %}
-<div class="container">
-  <div class="topbar">
-    <h1>Blind Aid</h1>
-    <div class="nav">
-      <a href="/app">Open App</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blind Aid - Vision Assist</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <!-- Fixed Navigation -->
+  <nav class="fixed-nav">
+    <div class="nav-logo"><span class="eye-icon">👁️</span>Blind Aid</div>
+    <div class="nav-dots">
+      <span class="nav-dot active" data-section="0"></span>
+      <span class="nav-dot" data-section="1"></span>
+      <span class="nav-dot" data-section="2"></span>
+      <span class="nav-dot" data-section="3"></span>
     </div>
-  </div>
+  </nav>
 
-  <div class="card">
-    <p class="lead">Blind Aid is a small vision-assist app that runs an object detector (YOLOv8) on a camera feed and exposes live detection stats via a web UI.</p>
-    <div class="row">
-      <div style="flex:1">
-        <h3 style="margin-top:0">What it does</h3>
-        <ul>
-          <li>Detects people, animals and common objects in the camera view.</li>
-          <li>Draws bounding boxes on the live video window.</li>
-          <li>Exposes simple realtime stats (frames processed, last detection count) to this website.</li>
-        </ul>
+  <!-- Scroll Container -->
+  <div class="scroll-container">
+    
+    <!-- Section 1: Welcome -->
+    <section class="section section-welcome">
+      <div class="section-content">
+        <div class="welcome-icon">👁️</div>
+        <h1 class="welcome-title">Blind Aid</h1>
+        <p class="welcome-subtitle">Vision Assist Technology</p>
+        <p class="welcome-description">Empowering independence through AI-powered visual assistance</p>
+        <div class="scroll-indicator">
+          <span>
+				    <p class="scroll-text">Scroll to explore</p>
+			    </span>
+          		<div class="scroll-arrow">↓</div>
+		  </div>
       </div>
-      <div style="width:300px">
-        <div class="stat card">
-          <div class="num">Ready</div>
-          <div class="muted">Local demo</div>
+    </section>
+
+    <!-- Section 2: Features -->
+    <section class="section section-features">
+      <div class="section-content">
+        <h2 class="section-title">What It Does</h2>
+        <p class="section-subtitle">Powered by YOLOv8 object detection technology</p>
+        
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🔍</div>
+            <h3>Object Detection</h3>
+            <p>Detects people, animals and common objects in real-time camera view</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📦</div>
+            <h3>Visual Feedback</h3>
+            <p>Draws bounding boxes on the live video window for clear identification</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Live Statistics</h3>
+            <p>Exposes simple realtime stats and detection counts</p>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div style="margin-top:18px">
-  <button id="go-to-app" class="btn">Open App</button>
-  <a class="btn secondary" href="/app">Open App (new tab)</a>
-    </div>
+    <!-- Section 3: Access App -->
+    <section class="section section-app">
+      <div class="section-content">
+        <h2 class="section-title">Ready to Start?</h2>
+        <p class="section-subtitle">Experience the power of AI-assisted vision</p>
+        
+        <div class="app-card">
+          <div class="app-status">
+            <div class="status-indicator"></div>
+            <span>System Ready</span>
+          </div>
+          <p class="app-tip">💡 Run the detector from the host machine and then open the app to see live stats.</p>
+          <div class="button-group">
+            <button id="go-to-app" class="btn btn-large">Launch App</button>
+            <a class="btn btn-large secondary" href="/app" target="_blank">Open in New Tab</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Contact -->
+    <section class="section section-contact">
+      <div class="section-content">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Have questions or feedback? Reach out!</p>
+        
+        <div class="contact-grid">
+          <a href="mailto:msajanjua87@gmail.com" class="contact-card">
+            <div class="contact-icon">📧</div>
+            <h3>Email</h3>
+            <p>msajanjua87@gmail.com</p>
+          </a>
+          <a href="https://github.com/msaqibatifj" target="_blank" class="contact-card">
+            <div class="contact-icon">💻</div>
+            <h3>GitHub</h3>
+            <p>github.com/msaqibatifj</p>
+          </a>
+          <a href="https://www.linkedin.com/in/muhammad-saqib-atif-a5a9662a8/" target="_blank" class="contact-card">
+            <div class="contact-icon">💼</div>
+            <h3>LinkedIn</h3>
+            <p>Muhammad Saqib Atif</p>
+          </a>
+        </div>
+        
+        <div class="footer">
+          <p>© 2026 Blind Aid. Built with ❤️ for accessibility.</p>
+        </div>
+      </div>
+    </section>
+
   </div>
 
-  <div class="footer">Tip: Run the detector from the host machine and then open the app to see live stats.</div>
-</div>
-
-{% endblock %}
+  <script src="/static/js/intro.js"></script>
+</body>
+</html>

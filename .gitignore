@@ -1,1 +1,11 @@
-/venv
+# Ignore the virtual environment folder
+.venv/
+venv/
+env/
+
+# Ignore Python cache files (compiled python)
+__pycache__/
+*.pyc
+
+# Ignore environment variables (security risk to commit these)
+.env
